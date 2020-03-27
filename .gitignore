@@ -1,2 +1,5 @@
-data/
+data/OutputVideos
+data/train
+data/validation
+data/out
 transfer/

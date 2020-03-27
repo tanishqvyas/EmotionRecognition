@@ -1,0 +1,7 @@
+Model Used,Face Detection Method,Frames Per Sec (FPS),Time (secs),Processing Status,Input Video,Original Video Length (secs)
+Our_own_model.h5,Final haarcascade,30,138.141,Complete,video.mp4,59
+Our_own_model.h5,Alt haarcascade,30,176.785,Complete,video.mp4,59
+Our_own_model.h5,MTCNN,30,481.117,Complete,video.mp4,59
+Our_own_model.h5,Final haarcascade,30,182.233,Complete,video1.mp4,100
+Our_own_model.h5,Alt haarcascade,30,247.203,Complete,video1.mp4,100
+Our_own_model.h5,MTCNN,30,686.302,Complete,video1.mp4,100
