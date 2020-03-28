@@ -16,7 +16,7 @@ import os
 
 
 haarcascade_path = os.path.join("haarcascade","alt.xml")
-model_path = os.path.join("model","Emotion_little_vgg.h5")
+model_path = os.path.join("model","emotional_fool.h5")
 
 face_classifier = cv2.CascadeClassifier(haarcascade_path)
 classifier =load_model(model_path)
@@ -24,13 +24,13 @@ classifier =load_model(model_path)
 
 class_labels = ['Angry','Happy','Neutral','Sad','Surprise'] # Remember to keep in alphabetical order
 
-cap = cv2.VideoCapture("data/video/video1.mp4")
+cap = cv2.VideoCapture("/home/tanishq/MAVIS/Entertainment/Harry Potter/Harry Potter Movies/Harry Potter 3-and the Prisoner of Azkaban.mkv")
 
 
 # for saving
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 # output file name, fourcc code, frame/sec, size tuple
-out = cv2.VideoWriter('project_alt_haarcascade_video1.avi', fourcc, 30, (1280,720))
+# out = cv2.VideoWriter('project_alt_haarcascade_video1.avi', fourcc, 30, (1280,720))
 
 
 
@@ -71,13 +71,13 @@ while True:
         print("Input Video Error. Please check the input source.")
         break
    
-    out.write(frame)
+    # out.write(frame)
     cv2.imshow('Emotion Detector',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cap.release()
-out.release()
+# out.release()
 cv2.destroyAllWindows()
 
 print("--- %s seconds ---" % (time.time() - start_time))

@@ -1,5 +1,10 @@
 data/OutputVideos
 data/train
-data/validation
+data/train1
+data/validation1
 data/out
+
+data/validation
+data/test
+
 transfer/

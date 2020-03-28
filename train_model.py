@@ -165,8 +165,8 @@ model.compile(loss='categorical_crossentropy',
 				metrics = ['accuracy']
 					)
 
-nb_train_samples = 24176
-nb_validation_samples = 3006
+nb_train_samples = 23088
+nb_validation_samples = 6603
 epochs = 25
 
 
