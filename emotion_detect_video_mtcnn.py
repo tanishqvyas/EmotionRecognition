@@ -21,7 +21,7 @@ from mtcnn import MTCNN
 detector = MTCNN()
 
 # Path to the emotion detection model
-model_path = os.path.join("model","emotional_fool.h5")
+model_path = os.path.join("model","EluEmotional.h5")
 classifier =load_model(model_path)
 
 class_labels = ['Angry','Happy','Neutral','Sad','Surprise'] # Remember to keep in alphabetical order
@@ -45,6 +45,7 @@ cap = cv2.VideoCapture('path/to/video/file')
 
 """
 cap = cv2.VideoCapture("data/video/video1.mp4")
+# cap = cv2.VideoCapture(0)
 
 while(True):
 

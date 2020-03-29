@@ -63,40 +63,61 @@ model = Sequential()
 # Block 1 of our CNN
 
 model.add(Conv2D(32,(3,3), padding = 'same', kernel_initializer='he_normal', input_shape=(img_rows,img_cols,1) ))
+
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Conv2D(32,(3,3), padding = 'same', kernel_initializer='he_normal', input_shape=(img_rows,img_cols,1) ))
+
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 
 # Block 2 of our CNN
 model.add(Conv2D(64,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Conv2D(64,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 
 # Block 3 of our CNN
 model.add(Conv2D(128,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Conv2D(128,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
 
 # Block 4 of our CNN
 model.add(Conv2D(256,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Conv2D(256,(3,3), padding = 'same', kernel_initializer='he_normal' ))
+
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.2))
@@ -104,13 +125,17 @@ model.add(Dropout(0.2))
 # Block 5 >>> CNN is completed now flattening will start
 model.add(Flatten())
 model.add(Dense(64, kernel_initializer='he_normal'))
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Dropout(0.5))
 
 # Block 6
 model.add(Dense(64, kernel_initializer='he_normal'))
+# model.add(Activation('elu'))
 model.add(Activation('elu'))
+
 model.add(BatchNormalization())
 model.add(Dropout(0.5))
 
@@ -127,7 +152,7 @@ print(model.summary())
 from keras.optimizers import RMSprop, SGD, Adam
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 
-name_of_model = "emotional_fool.h5"
+name_of_model = "EluEmotional.h5"
 
 
 checkpoint = ModelCheckpoint(
@@ -165,7 +190,7 @@ model.compile(loss='categorical_crossentropy',
 				metrics = ['accuracy']
 					)
 
-nb_train_samples = 23088
+nb_train_samples = 26387
 nb_validation_samples = 6603
 epochs = 25
 
