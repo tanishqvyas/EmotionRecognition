@@ -9,7 +9,18 @@ Folder structure
 |	|	|--- video1.mp4
 |	|
 |	|--- train
+|	|	|--- Angry
+|	|	|--- Happy
+|	|	|--- Neutral
+|	|	|--- Sad
+|	|	|--- Surprise
+|	|	
 |	|--- validation
+|	|	|--- Angry
+|	|	|--- Happy
+|	|	|--- Neutral
+|	|	|--- Sad
+|	|	|--- Surprise
 |
 |--- haarcascade
 |	|
