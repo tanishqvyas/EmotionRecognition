@@ -5,8 +5,8 @@ Folder structure
 |--- data
 |	|
 |	|--- video
-|	|		|--- video.mp4
-|	|		|--- video1.mp4
+|	|	|--- video.mp4
+|	|	|--- video1.mp4
 |	|
 |	|--- train
 |	|--- validation
