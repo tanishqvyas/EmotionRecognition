@@ -31,7 +31,7 @@ class_labels = ['Angry','Happy','Neutral','Sad','Surprise'] # Remember to keep i
 # for saving
 fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 # output file name, fourcc code, frame/sec, size tuple
-out = cv2.VideoWriter('project_mtcnn.avi', fourcc, 30, (1280,720))
+out = cv2.VideoWriter(os.path.join("data","outputvideos","project_mtcnn.avi"), fourcc, 30, (1280,720))
 
 
 """

@@ -14,7 +14,7 @@ batch_size = 32
 
 
 
-
+# Dataset Path
 train_data_dir = os.path.join("data","train")
 validation_data_dir = os.path.join("data","validation")
 
@@ -152,7 +152,8 @@ print(model.summary())
 from keras.optimizers import RMSprop, SGD, Adam
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 
-name_of_model = "EluEmotional.h5"
+
+name_of_model = os.path.join("model","test.h5")
 
 
 checkpoint = ModelCheckpoint(

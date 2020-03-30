@@ -1,14 +1,18 @@
-Folder structure
+**Folder structure**
 
 ```
 +
 |--- data
 |	|
+|	|--- outputvideos
+|	|
 |	|--- video
+|	|	|
 |	|	|--- video.mp4
 |	|	|--- video1.mp4
 |	|
 |	|--- train
+|	|	|
 |	|	|--- Angry
 |	|	|--- Happy
 |	|	|--- Neutral
@@ -16,6 +20,7 @@ Folder structure
 |	|	|--- Surprise
 |	|	
 |	|--- validation
+|	|	|
 |	|	|--- Angry
 |	|	|--- Happy
 |	|	|--- Neutral
