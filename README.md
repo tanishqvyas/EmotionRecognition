@@ -26,6 +26,14 @@
 |	|	|--- Neutral
 |	|	|--- Sad
 |	|	|--- Surprise
+|	|	
+|	|--- test
+|	|	|
+|	|	|--- Angry
+|	|	|--- Happy
+|	|	|--- Neutral
+|	|	|--- Sad
+|	|	|--- Surprise
 |
 |--- haarcascade
 |	|
@@ -47,6 +55,7 @@
 |--- face_detect_video.py
 |--- prepare_dataset_resized.py
 |--- train_model.py
+|--- get_testing_accuracy.py
 |--- README.md
 |
 +
