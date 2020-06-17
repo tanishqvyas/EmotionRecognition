@@ -35,11 +35,6 @@
 |	|	|--- Sad
 |	|	|--- Surprise
 |
-|--- haarcascade
-|	|
-|	|--- alt.xml
-|	|--- final.xml
-|
 |
 |--- model
 |	|
@@ -49,7 +44,6 @@
 |	|--- ReluEmotional.h5
 |
 |
-|--- emotion_detect_video_haarcascade.py
 |--- emotion_detect_video_mtcnn.py
 |--- face_detect_image.py
 |--- face_detect_video.py
