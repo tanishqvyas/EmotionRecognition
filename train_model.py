@@ -157,7 +157,7 @@ from keras.optimizers import RMSprop, SGD, Adam
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 
 
-name_of_model = os.path.join("model","mach_two.h5")
+name_of_model = os.path.join("model","mach_three.h5")
 
 
 checkpoint = ModelCheckpoint(
@@ -228,4 +228,5 @@ plt.xlabel('epoch')
 
 plt.legend(['train acc', 'val acc', 'train loss', 'val loss'], loc='upper right')
 plt.show()
+
 

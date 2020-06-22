@@ -80,7 +80,7 @@ for emotion in range(num_classes):
 			count[emotion] += 1
 
 
-print("\nTesting Summary :")
+print("\nTesting Summary for the model : ", model_name)
 for i in range(num_classes):
 
 	print(class_labels[i], " : ", (count[i]/tot_count[i])*100)
