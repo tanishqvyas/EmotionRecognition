@@ -5,7 +5,7 @@ start_time = time.time()
 
 
 
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from time import sleep
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing import image
@@ -24,6 +24,7 @@ test_data_dir = os.path.join("data","test")
 
 
 model_name = input("\n\nEnter the model name : ")
+model_name = model_name + '.h5'
 
 print("-------------------Loading the model------------------------------")
 model_path = os.path.join("model",model_name)
@@ -76,8 +77,14 @@ for emotion in range(num_classes):
 		print("Current Prediction : ", cur_prediction )
 		print("True Prediction : ", class_labels[emotion])
 
+		# if(class_labels[emotion] != 'Sad'):
 		if(cur_prediction == class_labels[emotion]):
 			count[emotion] += 1
+
+		# else:
+		# 	if(cur_prediction == class_labels[emotion] or cur_prediction == 'Neutral'):
+		# 		count[emotion] += 1
+
 
 
 print("\nTesting Summary for the model : ", model_name)

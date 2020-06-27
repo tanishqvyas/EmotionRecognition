@@ -16,8 +16,6 @@ num_classes = 5  # we have 5 kinds of emotions
 img_rows, img_cols = 48, 48
 batch_size = 32
 
-
-
 # Dataset Path
 train_data_dir = os.path.join("data","train")
 validation_data_dir = os.path.join("data","validation")
@@ -157,7 +155,7 @@ from keras.optimizers import RMSprop, SGD, Adam
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 
 
-name_of_model = os.path.join("model","mach_three.h5")
+name_of_model = os.path.join("model","mach_six.h5")
 
 
 checkpoint = ModelCheckpoint(
@@ -180,7 +178,7 @@ earlystop = EarlyStopping(
 
 reduce_lr = ReduceLROnPlateau(
 				monitor = 'val_accuracy',
-				factor = 0.2,
+				factor = 0.8,
 				patience = 2,
 				verbose = 1,
 				min_delta = 0.0001
@@ -193,11 +191,11 @@ callbacks = [earlystop, checkpoint, reduce_lr ]
 
 
 model.compile(loss='categorical_crossentropy',
-				optimizer = Adam(lr=0.00169),
+				optimizer = Adam(lr=0.0025),
 				metrics = ['accuracy']
 					)
 
-nb_train_samples = 18812
+nb_train_samples = 18907
 nb_validation_samples = 6791
 epochs = 32
 
