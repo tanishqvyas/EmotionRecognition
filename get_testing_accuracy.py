@@ -20,7 +20,8 @@ num_classes = 5  # we have 5 kinds of emotions
 img_rows, img_cols = 48, 48
 
 # Dataset Path
-test_data_dir = os.path.join("data","test")
+# test_data_dir = os.path.join("data","test")
+test_data_dir = os.path.join("Flickr","yo")
 
 
 model_name = input("\n\nEnter the model name : ")
@@ -33,6 +34,7 @@ print("-------------------Model Loaded Succesfully------------------------------
 
 
 class_labels = ['Angry','Happy','Neutral','Sad','Surprise'] # Remember to keep in alphabetical order
+# class_labels = ['Angry','Happy','Sad'] # Remember to keep in alphabetical order
 
 def load_images_from_folder(folder):
     images = []
@@ -53,7 +55,8 @@ for emotion in range(num_classes):
 	print("The current emotion is : ", class_labels[emotion])
 
 	# Getting the images
-	path = os.path.join("data","test", class_labels[emotion])
+	# path = os.path.join("data","test", class_labels[emotion])
+	path = os.path.join("Flickr","yo", class_labels[emotion])
 	image_list = load_images_from_folder(path)
 
 	# Setting the total count and initial count
@@ -74,8 +77,8 @@ for emotion in range(num_classes):
 		cur_prediction = classifier.predict(roi)[0]
 		cur_prediction = class_labels[list(cur_prediction).index(max(cur_prediction))]
 
-		print("Current Prediction : ", cur_prediction )
-		print("True Prediction : ", class_labels[emotion])
+		# print("Current Prediction : ", cur_prediction )
+		# print("True Prediction : ", class_labels[emotion])
 
 		# if(class_labels[emotion] != 'Sad'):
 		if(cur_prediction == class_labels[emotion]):

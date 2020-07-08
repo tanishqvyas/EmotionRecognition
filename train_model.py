@@ -16,7 +16,7 @@ num_classes = 5  # we have 5 kinds of emotions
 img_rows, img_cols = 48, 48
 batch_size = 32
 
-# Dataset Path
+# Dataset Pathb
 train_data_dir = os.path.join("data","train")
 validation_data_dir = os.path.join("data","validation")
 
