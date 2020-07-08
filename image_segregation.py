@@ -1,3 +1,5 @@
+# script to segregate training and validation data
+
 import cv2
 import os
 
@@ -11,10 +13,8 @@ def load_images_from_folder(folder):
 image_list = load_images_from_folder("Sad")
 c1=0
 c2=0
-# print(image_list[0])
 i=0
 
-# print(os.path.join(path,str(i+721)+'.jpg'))
 for i in range(len(image_list)):
     if(i%10==0):
         c1+=1
