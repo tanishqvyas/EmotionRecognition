@@ -1,4 +1,4 @@
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from time import sleep
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing import image
@@ -31,13 +31,15 @@ def face_emot_detect(vid_path,filename,output_path):
     # for saving
     fourcc = cv2.VideoWriter_fourcc(*'DIVX')
     # output file name, fourcc code, frame/sec, size tuple
-    out = cv2.VideoWriter(output_path+'//'+filename, fourcc, int(cap.get(5)), (int(cap.get(3)),int(cap.get(4))))
+    out = cv2.VideoWriter(output_path+'//'+filename, fourcc, int(cap.get(5)), (int(cap.get(3)*0.5),int(cap.get(4)*0.5)))
     while(True):
     # Read one frame at a time
         ret, frame = cap.read()
         labels = []
         # If a frame is returned
         if ret == True:
+            #change to 540p
+            frame = cv2.resize(frame,(0,0),fx = 0.5, fy = 0.5)
             # Get a dictionary of all faces
             gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
             faces = detector.detect_faces(frame)
