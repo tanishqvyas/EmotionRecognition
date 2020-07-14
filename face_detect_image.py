@@ -1,6 +1,6 @@
 from mtcnn import MTCNN
 import cv2
-img = cv2.imread('img.jpg')
+img = cv2.imread('data/test/Angry/1.jpg')
 img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 detector = MTCNN()
 faces = detector.detect_faces(img)
@@ -10,3 +10,4 @@ for f in faces:
     img = Rect
     img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
     cv2.imwrite('detect.jpg',img)
+
