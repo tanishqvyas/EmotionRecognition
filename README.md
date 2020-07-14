@@ -2,6 +2,12 @@
 
 ```
 +
+|---Application
+|   |
+|   |---client
+|   |---local_server
+|   |---online-server
+|
 |--- data
 |	|
 |	|--- outputvideos
