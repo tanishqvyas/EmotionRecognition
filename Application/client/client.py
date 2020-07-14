@@ -13,7 +13,7 @@ if connect() == False:
     exit()
 
 #intervel to take the next video
-WAIT_PERIOD = 30
+WAIT_PERIOD = 25
 
 #modules needed
 import cv2
@@ -72,14 +72,14 @@ vid_ids = open('vid_ids.txt','w+')
 
 #initialise timer
 start = time.time()
-files_counter = []
+files_counter = 0
 
 while(not keyboard.is_pressed('q')):
     ret,frame = cap.read()
     if(int(time.time()-start)%WAIT_PERIOD == 0):
         i+=1
         out = cv2.VideoWriter('data//'+str(i)+'.avi', fourcc, fps, (w,h),0)
-        for j in range(75):
+        for j in range(105):
             ret,frame = cap.read()
             if ret == True:
                 gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
@@ -92,7 +92,7 @@ while(not keyboard.is_pressed('q')):
         log.write(str(i)+'.avi is successfully uploaded\n\n')
         inst = drive.CreateFile({"title":str(i)})
         inst.Upload()
-        files_counter.append(inst["id"])
+        files_counter += 1
 
 #end any uploading tasks
 t1.join()
@@ -100,11 +100,8 @@ print(time.time()-start)
 cap.release()
 log.close()
 upload_file('log.txt','log.txt')
-for fileID in files_counter:
-    try:
-        inst = drive.CreateFile({"id":fileID})
-        inst.Delete()
-    except:
-        pass
+print()
+print(f"A total of {files_counter} videos were captured and sent in the present session")
+print()
 vid_ids.close()
 cv2.destroyAllWindows()
