@@ -8,15 +8,18 @@ import tensorflow as tf
 from tensorflow.keras import regularizers
 import matplotlib.pyplot as plt
 import numpy
-
+from keras.optimizers import RMSprop, SGD, Adam
+from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
 import os
 
-
+data =[]
 num_classes = 5  # we have 5 kinds of emotions
 img_rows, img_cols = 48, 48
 batch_size = 32
 
-# Dataset Pathb
+
+
+# Dataset Path
 train_data_dir = os.path.join("data","train")
 validation_data_dir = os.path.join("data","validation")
 
@@ -151,11 +154,8 @@ print(model.summary())
 
 
 # Abhi training krenge
-from keras.optimizers import RMSprop, SGD, Adam
-from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
-
-
-name_of_model = os.path.join("model","mach_six.h5")
+learning_rate=0.0025
+name_of_model = os.path.join("model","new_mach"+str(learning_rate)+".h5")
 
 
 checkpoint = ModelCheckpoint(
@@ -165,24 +165,23 @@ checkpoint = ModelCheckpoint(
 					mode = 'max',
 					save_best_only = True,
 					verbose = 1
-						)
+							)
 
 earlystop = EarlyStopping(
-
-				monitor = 'val_accuracy',
-				min_delta = 0,
-				patience = 7,
-				verbose = 1,
-				restore_best_weights = True
-						)
+			monitor = 'val_accuracy',
+			min_delta = 0,
+			patience = 7,
+			verbose = 1,
+			restore_best_weights = True
+					)
 
 reduce_lr = ReduceLROnPlateau(
-				monitor = 'val_accuracy',
-				factor = 0.8,
-				patience = 2,
-				verbose = 1,
-				min_delta = 0.0001
-						)
+			monitor = 'val_accuracy',
+			factor = 0.2,
+			patience = 2,
+			verbose = 1,
+			min_delta = 0.0001
+					)
 
 callbacks = [earlystop, checkpoint, reduce_lr ]
 # callbacks = [checkpoint, reduce_lr]
@@ -191,27 +190,29 @@ callbacks = [earlystop, checkpoint, reduce_lr ]
 
 
 model.compile(loss='categorical_crossentropy',
-				optimizer = Adam(lr=0.0025),
-				metrics = ['accuracy']
-					)
+			optimizer = Adam(lr=learning_rate),
+			metrics = ['accuracy']
+				)
 
-nb_train_samples = 18907
-nb_validation_samples = 6791
+
+nb_train_samples = 22770
+nb_validation_samples = 7254
 epochs = 32
 
 
-history = model.fit_generator(
-			train_generator,
-			steps_per_epoch = nb_train_samples//batch_size,
-			epochs = epochs,
-			callbacks = callbacks,
-			validation_data = validation_generator,
-			validation_steps = nb_validation_samples//batch_size
-				)
+history = model.fit(
+		train_generator,
+		steps_per_epoch = nb_train_samples//batch_size,
+		epochs = epochs,
+		callbacks = callbacks,
+		validation_data = validation_generator,
+		validation_steps = nb_validation_samples//batch_size
+			)
 
 
 # list all data in history
 print(history.history.keys())
+# data.append(history)
 
 # summarize history for accuracy
 plt.plot(history.history['accuracy'])
@@ -226,5 +227,3 @@ plt.xlabel('epoch')
 
 plt.legend(['train acc', 'val acc', 'train loss', 'val loss'], loc='upper right')
 plt.show()
-
-

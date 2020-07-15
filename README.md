@@ -50,6 +50,9 @@
 |--- prepare_dataset_resized.py
 |--- train_model.py
 |--- get_testing_accuracy.py
+|--- get_validation_accuracy.py
+|--- image_segregation.py
+|--- extract_faces.py
 |--- README.md
 |
 +
