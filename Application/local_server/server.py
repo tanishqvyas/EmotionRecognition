@@ -113,6 +113,15 @@ else:
                         'The result file is attached',
                         'result.txt')
                     print(time.time()-start)
+                    print("Do you want to clean up the data folder")
+                    choice = input("y/n??")
+                    if(choice == "y"):
+                        os.remove("data")
+                    print("Do you want to clean up the results")
+                    choice = input("y/n??")
+                    if(choice == "y"):     
+                        os.remove("result.txt")
+                        os.remove("*.avi")
                     exit()
                     exit()
                 
@@ -155,3 +164,15 @@ else:
                 'result.txt')
     print(time.time()-start)
     exit()
+
+print()
+print()
+print("Do you want to clean up the data folder")
+choice = input("y/n??")
+if(choice == "y"):
+    os.remove("data")
+print("Do you want to clean up the results")
+choice = input("y/n??")
+if(choice == "y"):
+    os.remove("*.avi")
+    os.remove("result.txt")
