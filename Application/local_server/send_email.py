@@ -43,7 +43,7 @@ def send_email(mailID,title,body='',attachment=''):
     # start TLS for security 
     s.starttls() 
     # Authentication 
-    s.login(fromaddr, "Emotiondetection#") 
+    s.login(fromaddr, "PASSWORD") 
     # Converts the Multipart msg into a string 
     text = msg.as_string() 
     # sending the mail 
